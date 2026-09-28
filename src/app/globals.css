@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #121110;
+  --ink-2: #1c1a17;
+  --ink-3: #252220;
+  --stone: #a8a196;
+  --stone-dim: #736c61;
+  --paper: #f3efe8;
+  --paper-dim: #cdc6ba;
+  --gold: #d99a2b;
+  --gold-bright: #f0b545;
+  --gold-ink: #2a1c07;
+  --line: rgba(243, 239, 232, 0.11);
+  --line-strong: rgba(243, 239, 232, 0.2);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-stone: var(--stone);
+  --color-stone-dim: var(--stone-dim);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-ink: var(--gold-ink);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --font-display: var(--font-cairo);
+  --font-body: var(--font-tajawal);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}

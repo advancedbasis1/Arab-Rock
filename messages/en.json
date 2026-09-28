@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "siteName": "Arab Rock",
+    "titleSuffix": "Arab Rock | Mining & Aggregate Supply",
+    "description": "Arab Rock is a Saudi company specialized in mining and supplying rock, aggregate, sand and gravel, covering every region of the Kingdom from our Riyadh headquarters."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "partners": "Partners",
+    "contact": "Contact",
+    "cta": "Request a Quote"
+  },
+  "home": {
+    "eyebrow": "Mining · Supply · Transport — Kingdom-wide coverage",
+    "heroTitle": "From mountain to milestone —",
+    "heroTitleAccent": "delivered to your project anywhere in the Kingdom",
+    "heroLead": "Arab Rock powers Saudi Arabia's growth with high-quality rock, aggregate, sand, and gravel, mined with precision and delivered with reliability. Wherever your project is located, we bring the materials that build the Kingdom's future — on time, every time.",
+    "ctaWhatsapp": "Chat on WhatsApp",
+    "ctaServices": "Explore our services",
+    "tags": ["Extraction & mining", "Rock, aggregate, sand & gravel", "Direct transport & delivery"],
+    "aboutEyebrow": "About us",
+    "aboutTitle": "From the heart of the mountain to the core of your project",
+    "aboutText": "Arab Rock delivers the materials that build Saudi Arabia — rock, aggregate, sand, gravel, and essential construction inputs — mined with precision and supplied through a fully integrated chain from extraction to on-site delivery. We support contractors, infrastructure developers, and industrial sectors with dependable quality and Kingdom-wide reach.",
+    "aboutLink": "More about the company",
+    "servicesEyebrow": "Our services",
+    "servicesTitle": "An integrated chain from quarry to site",
+    "servicesLead": "From extraction to on-site delivery, we manage every link of the supply chain with quality and efficiency.",
+    "servicesLink": "All services",
+    "coverageEyebrow": "Geographic coverage",
+    "coverageTitle": "From Riyadh to every project site in the Kingdom",
+    "coverageText": "Headquartered in Riyadh, our supply and transport services extend to cover every region of Saudi Arabia without exception.",
+    "coverageHub": "Riyadh — Headquarters",
+    "coverageCities": ["Jeddah", "Dammam", "Makkah", "Madinah", "Qassim", "and all regions of the Kingdom"],
+    "ctaBandTitle": "Ready to supply your next project",
+    "ctaBandText": "Reach out by email or WhatsApp to request a quote or ask about our mining, supply and transport services.",
+    "ctaBandButton": "Contact us"
+  },
+  "about": {
+    "eyebrow": "About us",
+    "title": "Arab Rock — mining & rock supply",
+    "lead": "Your trusted partner for sourcing, processing, and delivering essential construction materials across Saudi Arabia. We combine advanced quarrying, precise material preparation, and reliable Kingdom-wide logistics to support contractors, infrastructure developers, and industrial projects with the quality and consistency they depend on.",
+    "p1": "Arab Rock is a Saudi company specialized in mining and supplying rock, aggregate, sand, gravel, and essential construction materials. We support the contracting, infrastructure, and industrial sectors through a fully integrated chain that begins with extraction and continues through precise processing, quality control, and direct delivery to the job site.",
+    "p2": "Our operations span every region of the Kingdom, backed by a commitment to quality, reliability, and long-term partnerships. With continuous investment in our fleet, equipment, and operational capabilities, we ensure consistent performance and keep pace with the Kingdom's rapidly expanding development landscape.",
+    "factsTitle": "Arab Rock at a glance",
+    "facts": [
+      { "value": "Riyadh", "label": "Headquarters" },
+      { "value": "100%", "label": "Coverage of the Kingdom" },
+      { "value": "End to end", "label": "Extraction, supply & transport" },
+      { "value": "Rock · Aggregate", "label": "Sand, gravel & derivatives" }
+    ],
+    "valuesTitle": "What sets us apart",
+    "values": [
+      { "title": "Guaranteed quality", "text": "Strict inspection and spec matching for every shipment leaving the quarry." },
+      { "title": "On-time delivery", "text": "Clear delivery schedules we honor from order to arrival at your site." },
+      { "title": "National coverage", "text": "Supply and transport to every region of the Kingdom, based in Riyadh." },
+      { "title": "Specialized field team", "text": "Hands-on mining and supply experience across project sizes." }
+    ]
+  },
+  "services": {
+    "eyebrow": "Our services",
+    "title": "An integrated chain from quarry to site",
+    "lead": "From extraction to on-site delivery, we manage every link of the supply chain with quality and efficiency.",
+    "items": [
+      {
+        "title": "Extraction & mining",
+        "summary": "We extract rock and raw materials using advanced quarrying equipment, operating under strict safety protocols and rigorous quality standards to ensure consistent, reliable supply for every project.",
+        "details": ["Site survey and assessment", "Modern mining equipment", "Full compliance with safety standards"]
+      },
+      {
+        "title": "Construction material supply",
+        "summary": "Supplying rock, aggregate, sand and gravel in various sizes and specifications matching your project's requirements.",
+        "details": ["Rock and aggregate in multiple sizes", "Spec-compliant sand and gravel", "Quality checks before every shipment"]
+      },
+      {
+        "title": "Transport & delivery",
+        "summary": "A dedicated transport fleet delivering materials directly to your project site on the agreed quantities and schedule.",
+        "details": ["Dedicated truck fleet", "Precise delivery schedules", "Shipment tracking to the site"]
+      },
+      {
+        "title": "Kingdom-wide coverage",
+        "summary": "Customer service and supply extending to every region of Saudi Arabia, coordinated from our Riyadh headquarters.",
+        "details": ["Coverage across all regions", "Central logistics coordination from Riyadh", "Flexible order sizes"]
+      }
+    ],
+    "ctaTitle": "Need materials supplied to your project?",
+    "ctaText": "Send us your project details and we'll get back to you with a suitable quote.",
+    "ctaButton": "Request a quote"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Our projects",
+    "lead": "We're currently documenting our projects and partnerships here.",
+    "emptyTitle": "Projects section coming soon",
+    "emptyText": "We'll soon add details of the projects we've delivered with our clients. Get in touch to learn more about our current work.",
+    "emptyButton": "Contact us"
+  },
+  "partners": {
+    "eyebrow": "Partners",
+    "title": "Our partners",
+    "lead": "We build long-term relationships with clients and partners across the public and private sectors.",
+    "emptyTitle": "Partners section coming soon",
+    "emptyText": "We'll soon add the logos and details of our partners and the entities we work with. Get in touch to learn more.",
+    "emptyButton": "Contact us"
+  },
+  "contact": {
+    "eyebrow": "Contact us",
+    "title": "Ready to supply your next project",
+    "lead": "Reach out by email or WhatsApp to request a quote or ask about our mining, supply and transport services.",
+    "whatsapp": "Message us on WhatsApp",
+    "email": "Email us",
+    "infoWhatsappLabel": "WhatsApp",
+    "infoEmailLabel": "Email",
+    "infoLocationLabel": "Location",
+    "location": "Riyadh, Saudi Arabia",
+    "coverageNote": "and coverage across the entire Kingdom",
+    "formTitle": "Send us a message",
+    "formName": "Name",
+    "formNamePlaceholder": "Your full name",
+    "formEmail": "Email",
+    "formEmailPlaceholder": "example@email.com",
+    "formPhone": "Phone number",
+    "formPhonePlaceholder": "05xxxxxxxx",
+    "formMessage": "Message",
+    "formMessagePlaceholder": "Tell us about your project and material needs...",
+    "formSubmit": "Send message",
+    "formSubmitting": "Sending...",
+    "formSuccess": "Your message has been sent. We'll be in touch soon.",
+    "formError": "Something went wrong. Please try again or message us directly on WhatsApp.",
+    "formErrorRequired": "Please fill in your name, email and message."
+  },
+  "footer": {
+    "description": "A Saudi company specialized in mining and supplying rock, aggregate, sand and gravel, covering every region of the Kingdom from our Riyadh headquarters.",
+    "quickLinks": "Quick links",
+    "contactTitle": "Contact",
+    "rights": "All rights reserved."
+  }
+}
