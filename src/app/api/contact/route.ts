@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from: "موقع عرب روك <notifications@arabrocks.com>",
-      to: "advancedbasis1@gmail.com",
+      to: "sales@arabrocks.com",
       replyTo: email,
       subject: `رسالة جديدة من موقع عرب روك — ${name}`,
       html,
