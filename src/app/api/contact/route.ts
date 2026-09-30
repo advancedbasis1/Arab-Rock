@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 type ContactPayload = {
   name?: string;
@@ -8,6 +9,15 @@ type ContactPayload = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 export async function POST(req: NextRequest) {
   let body: ContactPayload;
@@ -31,22 +41,58 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "invalid-email" }, { status: 400 });
   }
 
-  // TODO: ربط Resend لاحقاً لإرسال إيميل فعلي لصندوق وارد الشركة.
-  // نموذج جاهز (يحتاج تركيب الحزمة: npm install resend):
-  //
-  // import { Resend } from "resend";
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  //
-  // await resend.emails.send({
-  //   from: "Arab Rock Website <onboarding@resend.dev>",
-  //   to: "info@advancedarabia.com",
-  //   replyTo: email,
-  //   subject: `رسالة جديدة من موقع عرب روك — ${name}`,
-  //   text: `الاسم: ${name}\nالبريد: ${email}\nالجوال: ${phone || "-"}\n\n${message}`,
-  // });
+  const html = `
+    <div style="font-family: Arial, sans-serif; direction: rtl; text-align: right; color: #1a1a1a;">
+      <h2 style="margin: 0 0 16px;">رسالة جديدة من نموذج التواصل</h2>
+      <p style="margin: 0 0 8px;"><strong>الاسم:</strong> ${escapeHtml(name)}</p>
+      <p style="margin: 0 0 8px;"><strong>البريد الإلكتروني:</strong> ${escapeHtml(email)}</p>
+      <p style="margin: 0 0 8px;"><strong>الجوال:</strong> ${escapeHtml(phone || "-")}</p>
+      <p style="margin: 16px 0 4px;"><strong>الرسالة:</strong></p>
+      <p style="margin: 0; white-space: pre-wrap;">${escapeHtml(message)}</p>
+    </div>
+  `;
 
-  // مؤقتاً: نسجل الطلب في اللوق حتى يتم ربط مزود الإيميل.
-  console.log("[contact] new submission", { name, email, phone, message });
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey) {
+    console.error("[contact] RESEND_API_KEY is not set");
+    // fallback: نسجل الطلب في اللوق حتى ما تضيع الرسالة إذا كانت خدمة الإيميل غير مفعّلة
+    console.log("[contact] new submission (fallback log)", { name, email, phone, message });
+    return NextResponse.json(
+      {
+        error: "email-not-configured",
+        message: "خدمة إرسال الإيميل غير مفعّلة حالياً، تواصل معنا مباشرة على واتساب.",
+      },
+      { status: 500 }
+    );
+  }
+
+  try {
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from: "موقع عرب روك <notifications@arabrocks.com>",
+      to: "advancedbasis1@gmail.com",
+      replyTo: email,
+      subject: `رسالة جديدة من موقع عرب روك — ${name}`,
+      html,
+    });
+
+    if (error) {
+      console.error("[contact] resend send failed", error);
+      console.log("[contact] new submission (fallback log)", { name, email, phone, message });
+      return NextResponse.json(
+        { error: "email-send-failed", message: error.message },
+        { status: 502 }
+      );
+    }
+  } catch (err) {
+    console.error("[contact] resend threw", err);
+    console.log("[contact] new submission (fallback log)", { name, email, phone, message });
+    return NextResponse.json(
+      { error: "email-send-failed", message: "تعذر إرسال الرسالة، حاول مرة أخرى لاحقاً." },
+      { status: 502 }
+    );
+  }
 
   return NextResponse.json({ ok: true }, { status: 200 });
 }

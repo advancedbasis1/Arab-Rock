@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Arab Rock",
   nameAr: "عرب روك",
   domain: "arabrocks.com",
-  email: "info@advancedarabia.com",
+  email: "sales@arabrocks.com",
   whatsappNumber: "966500005617",
   whatsappDisplay: "+966 500 005 617",
   location: {
