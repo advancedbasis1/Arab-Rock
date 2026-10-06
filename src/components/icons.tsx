@@ -96,6 +96,18 @@ export function WhatsappIcon({ className, size = 20 }: IconProps) {
   );
 }
 
+export function LinkedinIcon({ className, size = 20 }: IconProps) {
+  return (
+    <svg {...base(size)} className={className}>
+      <rect x="3" y="3" width="18" height="18" rx="4" />
+      <line x1="7.5" y1="10.5" x2="7.5" y2="17" />
+      <circle cx="7.5" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+      <line x1="11.5" y1="10.5" x2="11.5" y2="17" />
+      <path d="M11.5 13.2a2.3 2.3 0 0 1 4.5 0V17" />
+    </svg>
+  );
+}
+
 export function MailIcon({ className, size = 20 }: IconProps) {
   return (
     <svg {...base(size)} className={className}>

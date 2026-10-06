@@ -3,8 +3,9 @@ export const siteConfig = {
   nameAr: "عرب روك",
   domain: "arabrocks.com",
   email: "sales@arabrocks.com",
-  whatsappNumber: "966500005617",
-  whatsappDisplay: "+966 500 005 617",
+  whatsappNumber: "966508268103",
+  whatsappDisplay: "+966 50 826 8103",
+  linkedinUrl: "https://www.linkedin.com/company/arab-rock",
   location: {
     ar: "الرياض، المملكة العربية السعودية",
     en: "Riyadh, Saudi Arabia",

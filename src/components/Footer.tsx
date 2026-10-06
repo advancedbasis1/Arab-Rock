@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { navItems, whatsappLink, emailLink, siteConfig } from "@/config/site";
+import { LinkedinIcon } from "./icons";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -71,6 +72,17 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-[14px] text-stone">{tContact("location")}</li>
+              <li>
+                <a
+                  href={siteConfig.linkedinUrl}
+                  target="_blank"
+                  rel="noopener"
+                  className="flex items-center gap-1.5 text-[14px] text-stone transition hover:text-gold"
+                >
+                  <LinkedinIcon size={18} />
+                  LinkedIn
+                </a>
+              </li>
             </ul>
           </div>
         </div>
