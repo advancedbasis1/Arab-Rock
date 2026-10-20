@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import EmptyState from "@/components/EmptyState";
 import { FolderIcon } from "@/components/icons";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,7 +13,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "projects" });
-  return { title: t("title") };
+  return {
+    title: t("title"),
+    description: t("lead"),
+    alternates: localeAlternates(locale, "/projects"),
+  };
 }
 
 export default async function ProjectsPage({

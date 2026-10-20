@@ -1,19 +1,29 @@
+import Image from "next/image";
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import Container from "@/components/Container";
 import Eyebrow from "@/components/Eyebrow";
-import MountainBackdrop from "@/components/MountainBackdrop";
-import PeakArt from "@/components/PeakArt";
 import ServiceCard from "@/components/ServiceCard";
 import {
-  PickaxeIcon,
-  SupplyIcon,
+  MountainIcon,
+  AggregateIcon,
   TruckIcon,
   MapPinIcon,
 } from "@/components/icons";
 import { whatsappLink } from "@/config/site";
+import { localeAlternates } from "@/lib/seo";
 
-const serviceIcons = [PickaxeIcon, SupplyIcon, TruckIcon, MapPinIcon];
+const serviceIcons = [MountainIcon, AggregateIcon, TruckIcon, MapPinIcon];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: localeAlternates(locale, "") };
+}
 
 export default async function HomePage({
   params,
@@ -36,54 +46,70 @@ export default async function HomePage({
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-clip py-16 sm:py-20 lg:py-24">
+      <section className="relative flex min-h-screen items-center overflow-clip">
         <div className="absolute inset-0 -z-10">
-          <MountainBackdrop />
+          <Image
+            src="/hero-truck.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[38%_center] rtl:object-[62%_center]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" />
+          <div
+            className="absolute inset-0 rtl:hidden"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, rgba(18,17,16,0.88) 0%, rgba(18,17,16,0.6) 30%, rgba(18,17,16,0.25) 60%, rgba(18,17,16,0.05) 100%)",
+            }}
+          />
+          <div
+            className="hidden rtl:block absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(to left, rgba(18,17,16,0.88) 0%, rgba(18,17,16,0.6) 30%, rgba(18,17,16,0.25) 60%, rgba(18,17,16,0.05) 100%)",
+            }}
+          />
         </div>
-        <Container>
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-            <div className="flex max-w-xl flex-col gap-6">
-              <Eyebrow>{t("eyebrow")}</Eyebrow>
-              <h1 className="text-[clamp(2.1rem,5vw,3.3rem)] font-extrabold leading-[1.18] text-paper">
-                {t("heroTitle")}{" "}
-                <span className="text-gold">{t("heroTitleAccent")}</span>
-              </h1>
-              <p className="max-w-[52ch] text-[17px] leading-relaxed text-paper-dim">
-                {t("heroLead")}
-              </p>
-              <div className="mt-1 flex flex-wrap gap-3.5">
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener"
-                  className="rounded-[10px] bg-gold px-6 py-3.5 text-[15px] font-extrabold text-gold-ink transition hover:-translate-y-0.5 hover:bg-gold-bright"
-                >
-                  {t("ctaWhatsapp")}
-                </a>
-                <Link
-                  href="/services"
-                  className="rounded-[10px] border border-line-strong px-6 py-3.5 text-[15px] font-extrabold text-paper transition hover:border-gold hover:text-gold"
-                >
-                  {t("ctaServices")}
-                </Link>
-              </div>
-              <div className="mt-1 flex flex-wrap gap-2.5">
-                {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-line px-3.5 py-1.5 text-[13px] font-bold text-stone"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+        <div className="px-5 py-16 sm:px-8 sm:py-20 lg:px-16">
+          <div className="flex max-w-xl flex-col gap-6">
+            <Eyebrow>{t("eyebrow")}</Eyebrow>
+            <h1 className="text-[clamp(2.1rem,5vw,3.3rem)] font-extrabold leading-[1.18] text-paper">
+              {t("heroTitle")}{" "}
+              <span className="text-gold">{t("heroTitleAccent")}</span>
+            </h1>
+            <p className="max-w-[52ch] text-[17px] leading-relaxed text-paper-dim">
+              {t("heroLead")}
+            </p>
+            <div className="mt-1 flex flex-wrap gap-3.5">
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener"
+                className="rounded-[10px] bg-gold px-6 py-3.5 text-[15px] font-extrabold text-gold-ink transition hover:-translate-y-0.5 hover:bg-gold-bright"
+              >
+                {t("ctaWhatsapp")}
+              </a>
+              <Link
+                href="/services"
+                className="rounded-[10px] border border-line-strong px-6 py-3.5 text-[15px] font-extrabold text-paper transition hover:border-gold hover:text-gold"
+              >
+                {t("ctaServices")}
+              </Link>
             </div>
-
-            <div className="relative mx-auto aspect-[520/430] w-full max-w-md lg:max-w-none">
-              <PeakArt />
+            <div className="mt-1 flex flex-wrap gap-2.5">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-line bg-ink/40 px-3.5 py-1.5 text-[13px] font-bold text-stone backdrop-blur-sm"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* ABOUT TEASER */}

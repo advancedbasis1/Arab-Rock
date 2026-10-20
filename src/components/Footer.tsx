@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { navItems, whatsappLink, emailLink, siteConfig } from "@/config/site";
-import { LinkedinIcon } from "./icons";
+import { LinkedinIcon, InstagramIcon, XIcon, TiktokIcon } from "./icons";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -72,15 +72,42 @@ export default function Footer() {
                 </a>
               </li>
               <li className="text-[14px] text-stone">{tContact("location")}</li>
-              <li>
+              <li className="flex items-center gap-3 pt-1">
                 <a
                   href={siteConfig.linkedinUrl}
                   target="_blank"
                   rel="noopener"
-                  className="flex items-center gap-1.5 text-[14px] text-stone transition hover:text-gold"
+                  aria-label="LinkedIn"
+                  className="text-stone transition hover:text-gold"
                 >
-                  <LinkedinIcon size={18} />
-                  LinkedIn
+                  <LinkedinIcon size={19} />
+                </a>
+                <a
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Instagram"
+                  className="text-stone transition hover:text-gold"
+                >
+                  <InstagramIcon size={19} />
+                </a>
+                <a
+                  href={siteConfig.xUrl}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="X"
+                  className="text-stone transition hover:text-gold"
+                >
+                  <XIcon size={19} />
+                </a>
+                <a
+                  href={siteConfig.tiktokUrl}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="TikTok"
+                  className="text-stone transition hover:text-gold"
+                >
+                  <TiktokIcon size={19} />
                 </a>
               </li>
             </ul>

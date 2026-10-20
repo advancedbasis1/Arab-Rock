@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 import FactCard from "@/components/FactCard";
 import ValueCard from "@/components/ValueCard";
 import { ShieldIcon, ClockIcon, MapPinIcon, UsersIcon } from "@/components/icons";
+import { localeAlternates } from "@/lib/seo";
 
 const valueIcons = [ShieldIcon, ClockIcon, MapPinIcon, UsersIcon];
 
@@ -15,7 +16,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "about" });
-  return { title: t("title") };
+  return {
+    title: t("title"),
+    description: t("lead"),
+    alternates: localeAlternates(locale, "/about"),
+  };
 }
 
 export default async function AboutPage({

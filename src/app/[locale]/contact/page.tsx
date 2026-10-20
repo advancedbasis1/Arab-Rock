@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
 import { WhatsappIcon, MailIcon, MapPinIcon } from "@/components/icons";
 import { whatsappLink, emailLink, siteConfig } from "@/config/site";
+import { localeAlternates } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -13,7 +14,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("title") };
+  return {
+    title: t("title"),
+    description: t("lead"),
+    alternates: localeAlternates(locale, "/contact"),
+  };
 }
 
 export default async function ContactPage({

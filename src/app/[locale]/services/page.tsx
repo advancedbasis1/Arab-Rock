@@ -6,6 +6,7 @@ import ServiceCard from "@/components/ServiceCard";
 import { PickaxeIcon, SupplyIcon, TruckIcon, MapPinIcon } from "@/components/icons";
 import { Link } from "@/i18n/navigation";
 import { whatsappLink } from "@/config/site";
+import { localeAlternates } from "@/lib/seo";
 
 const serviceIcons = [PickaxeIcon, SupplyIcon, TruckIcon, MapPinIcon];
 
@@ -16,7 +17,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "services" });
-  return { title: t("title") };
+  return {
+    title: t("title"),
+    description: t("lead"),
+    alternates: localeAlternates(locale, "/services"),
+  };
 }
 
 export default async function ServicesPage({

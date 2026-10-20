@@ -29,6 +29,25 @@ export function SupplyIcon({ className, size = 24 }: IconProps) {
   );
 }
 
+export function MountainIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg {...base(size)} className={className}>
+      <path d="M3 19 9 7l3.5 6L15 9l6 10H3Z" />
+    </svg>
+  );
+}
+
+export function AggregateIcon({ className, size = 24 }: IconProps) {
+  return (
+    <svg {...base(size)} className={className}>
+      <circle cx="7" cy="15" r="3" />
+      <circle cx="13" cy="17" r="2.2" />
+      <circle cx="17" cy="12" r="3.3" />
+      <circle cx="10" cy="9" r="2" />
+    </svg>
+  );
+}
+
 export function TruckIcon({ className, size = 24 }: IconProps) {
   return (
     <svg {...base(size)} className={className}>
@@ -104,6 +123,34 @@ export function LinkedinIcon({ className, size = 20 }: IconProps) {
       <circle cx="7.5" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
       <line x1="11.5" y1="10.5" x2="11.5" y2="17" />
       <path d="M11.5 13.2a2.3 2.3 0 0 1 4.5 0V17" />
+    </svg>
+  );
+}
+
+export function InstagramIcon({ className, size = 20 }: IconProps) {
+  return (
+    <svg {...base(size)} className={className}>
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function XIcon({ className, size = 20 }: IconProps) {
+  return (
+    <svg {...base(size)} className={className}>
+      <path d="M4.5 4 19.5 20" />
+      <path d="M19.5 4 4.5 20" />
+    </svg>
+  );
+}
+
+export function TiktokIcon({ className, size = 20 }: IconProps) {
+  return (
+    <svg {...base(size)} className={className}>
+      <path d="M14 3v10.8a3.7 3.7 0 1 1-3.7-3.7c.23 0 .46.02.7.07" />
+      <path d="M14 3c0 2.6 2.1 4.7 4.7 4.7" />
     </svg>
   );
 }

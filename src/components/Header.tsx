@@ -13,9 +13,16 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  function handleNavClick(e: React.MouseEvent, href: string) {
+    if (pathname === href) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
   return (
     <header
-      className="sticky z-50 border-b border-line bg-ink/90 backdrop-blur-md"
+      className="sticky z-50 border-b border-line/60 bg-ink/35 backdrop-blur-md"
       style={{ top: "env(safe-area-inset-top, 0px)" }}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5 sm:px-8">
@@ -28,6 +35,7 @@ export default function Header() {
               <Link
                 key={item.key}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={`transition hover:text-paper ${
                   active ? "text-gold" : ""
                 }`}
@@ -75,7 +83,10 @@ export default function Header() {
                 <Link
                   key={item.key}
                   href={item.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, item.href);
+                    setOpen(false);
+                  }}
                   className={`rounded-lg px-2 py-2.5 transition hover:bg-ink-2 hover:text-paper ${
                     active ? "text-gold" : ""
                   }`}
