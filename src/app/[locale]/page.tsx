@@ -46,7 +46,7 @@ export default async function HomePage({
   return (
     <>
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-clip">
+      <section className="relative flex min-h-[68vh] items-center overflow-clip lg:min-h-[calc(100vw*0.4382)]">
         <div className="absolute inset-0 -z-10">
           <Image
             src="/hero-truck.jpg"
@@ -54,7 +54,7 @@ export default async function HomePage({
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[38%_center] rtl:object-[62%_center]"
+            className="object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent" />
           <div
